@@ -10,8 +10,8 @@ var Content = function() {
 	var jokesTxt = fs.readFileSync('jokes.txt', {"encoding":"utf8"});
 	var jokes = jokesTxt.split("\n");		
 	
-	var generateRandomNumber = function() {
-		return Math.floor(Math.random()*10) % jokes.length;
+	var generateRandomNumber = function() {		
+		return Math.floor(Math.random() * jokes.length);
 	};
 
 	this.html = function() {
