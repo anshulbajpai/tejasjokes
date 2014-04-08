@@ -3,8 +3,6 @@ var fs = require('fs');
 var qs = require('querystring');
 
 var Content = function() {
-	this.picture = fs.readFileSync('tejas.jpg');
-	
 	var template = 	fs.readFileSync('template.html', {"encoding":"utf8"});
 
 	var jokesTxt = fs.readFileSync('jokes.txt', {"encoding":"utf8"});
@@ -29,11 +27,7 @@ var Content = function() {
 var content = new Content();
 
 http.createServer(function (req, res) {
-  if(req.url === "/tejas.jpg"){
-  	res.writeHead(200, {'Content-Type': 'image/jpeg'});  
-  	res.end(content.picture);		
-  }
-  else if(req.url === "/add" && req.method === "POST"){
+  if(req.url === "/add" && req.method === "POST"){
   	var body = "";
   	req.on('data', function (data) {
   		body +=data;
